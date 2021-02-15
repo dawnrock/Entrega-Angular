@@ -1,0 +1,44 @@
+
+
+
+  <h1>Login</h1>
+
+  <form [appBackground]="miColor" #loginForm="ngForm">
+
+    <div>
+
+      <p> {{ username  }} </p>
+
+      <label>Username</label>
+
+      <input name ="username" [(ngModel)]="newLogin.username" required #inputUsername="ngModel">
+
+      <div *ngIf="inputUsername.invalid && inputUsername.touched">
+        <div *ngIf="inputUsername.errors?.required">El username es obligatorio</div>
+      </div>
+
+
+    </div>
+    <div>
+
+      <p> {{ password }} </p>
+
+      <label>Password</label>
+
+      <input name ="password" [(ngModel)]="newLogin.password" required #inputPassword="ngModel">
+
+      <div *ngIf="inputPassword.invalid && inputPassword.touched">
+        <div *ngIf="inputPassword.invalid">El password es obligatorio</div>
+      </div>
+
+    </div>
+
+
+    <p> {{ infoLogin  }}</p>
+
+
+    <button (click)="checkLogin()">Check Login</button>
+
+    <button [disabled]="userLogin === false" (click)="getLogin()">Login</button>
+
+  </form>
